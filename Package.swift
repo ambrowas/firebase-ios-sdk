@@ -53,6 +53,7 @@ let package = Package(
       name: "FirebaseAnalyticsIdentitySupport",
       targets: ["FirebaseAnalyticsIdentitySupportTarget"]
     ),
+    
     // Deprecated. Use FirebaseAnalyticsCore instead.
     // Adding this library to your project is enough for it to take effect. The module
     // does not need to be imported into any source files.
@@ -148,6 +149,10 @@ let package = Package(
       name: "FirebaseStorage",
       targets: ["FirebaseStorage"]
     ),
+    .library(
+      name: "FirebaseInAppMessagingSwift",
+      targets: ["FirebaseInAppMessagingSwift"]
+    ),
   ],
   dependencies: [
     .package(
@@ -201,6 +206,14 @@ let package = Package(
       name: "Firebase",
       path: "CoreOnly/Sources",
       publicHeadersPath: "./"
+    ),
+    .target(
+        name: "FirebaseInAppMessagingSwift",
+        dependencies: [
+            "FirebaseInAppMessaging",
+            .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk")
+        ],
+        path: "FirebaseInAppMessagingSwift/Sources"
     ),
 
     // MARK: - Firebase AI
