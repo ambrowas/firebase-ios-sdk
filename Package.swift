@@ -218,14 +218,14 @@ let package = Package(
 
     // MARK: - Firebase AI
 
-    .target(
-      name: "FirebaseAI",
-      dependencies: [
-        "FirebaseAppCheckInterop",
-        "FirebaseAuthInterop",
-        "FirebaseCore",
-        "FirebaseCoreExtension",
-      ],
+      .target(
+          name: "FirebaseInAppMessagingSwift",
+          dependencies: [
+              "FirebaseInAppMessaging",
+              "FirebaseAnalytics"
+          ],
+          path: "FirebaseInAppMessagingSwift/Sources"
+      ),
       path: "FirebaseAI/Sources"
     ),
     .testTarget(
